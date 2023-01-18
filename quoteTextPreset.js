@@ -7,6 +7,7 @@
 "use strict"
 var initEngineRunTime;
 var refreshRate = 10;
+var posTracker = 0;
 
 export function init(){
 	let selectedElement = quotesArray[Math.floor(Math.random()*quotesArray.length)];
@@ -14,7 +15,7 @@ export function init(){
 	thisLayer.text = getBrokenString(selectedElement['quoteText'], 5, () => breakLineCounter++);
 	shared.quoteSettings = {
 		isVisible: true,
-		quote_author: `~${selectedElement['quoteAuthor']}`,
+		quote_author: `${selectedElement['quoteAuthor']}`,
 		breakLineCounter: breakLineCounter,
 		xSize: thisLayer.size.x,
 		ySize: thisLayer.size.y,
@@ -34,14 +35,16 @@ export function update(){
 		let breakLineCounter = 0;
 		
 		thisLayer.text = getBrokenString(selectedElement['quoteText'], 5, () => breakLineCounter++);
-		shared.quoteSettings.quote_author = `~${selectedElement['quoteAuthor']}`;
+		shared.quoteSettings.quote_author = `${selectedElement['quoteAuthor']}`;
 
-		thisLayer.origin = thisLayer.origin.add(new Vec3(-(refreshRate*9.3), 0, 0))
+		thisLayer.origin = thisLayer.origin.add(new Vec3(-posTracker, 0, 0))
+		posTracker = 0;
 
 		initEngineRunTime = engine.runtime;
 	}
 	else
 		thisLayer.origin = thisLayer.origin.add(new Vec3(0.2, 0, 0));
+		posTracker += 0.2;
 }
 
 
