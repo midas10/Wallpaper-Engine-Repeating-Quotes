@@ -36,7 +36,7 @@ export function update(){
 		thisLayer.text = getBrokenString(selectedElement['quoteText'], 5, () => breakLineCounter++);
 		shared.quoteSettings.quote_author = `~${selectedElement['quoteAuthor']}`;
 
-		thisLayer.origin = thisLayer.origin.add(new Vec3(-(refreshRate*9.7), 0, 0))
+		thisLayer.origin = thisLayer.origin.add(new Vec3(-(refreshRate*9.3), 0, 0))
 
 		initEngineRunTime = engine.runtime;
 	}
