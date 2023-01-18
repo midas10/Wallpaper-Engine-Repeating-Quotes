@@ -10,3 +10,5 @@ NOTES:
 
 Thanks to mdrb97 for making the initial script I used for this. 
 https://github.com/mdrb97
+
+![](https://github.com/midas10/Wallpaper-Engine-Repeating-Quotes/blob/main/Demo.gif)
